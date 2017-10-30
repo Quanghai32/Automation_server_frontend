@@ -1,0 +1,79 @@
+﻿.myButton {
+    margin-top: 20px;
+    font-family: Arial;
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    /*cursor: hand;*/
+}
+
+    .myButton:hover {
+        background-color: #cfd8dc;
+    }
+
+.btn_text_only {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    color: #0059b3;
+}
+
+    .btn_text_only:hover {
+        color: #597ba3;
+    }
+    .btn_text_only:active {
+        color: #2d5986;
+    }
+
+select {
+    margin-top: 20px;
+    font-family: Arial;
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    /*cursor: hand;*/
+}
+
+/* Navigation link styles */
+nav a {
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-right: 10px;
+    margin-top: 10px;
+    display: inline-block;
+    background-color: #eee;
+    border-radius: 4px;
+}
+
+    nav a:visited, a:link {
+        color: #607D8B;
+    }
+
+    nav a:hover {
+        color: #039be5;
+        background-color: #CFD8DC;
+    }
+
+    nav a.active {
+        color: #039be5;
+    }
+
+.hor {
+    display: inline-block;
+}
+.horizontal *{
+    
+        display: inline-block;
+        margin-left: 10px;
+    }
+
+    chart {
+        width: 100% !important;
+        margin: 0 auto;
+        display: block;
+    }

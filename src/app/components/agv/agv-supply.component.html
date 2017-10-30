@@ -1,0 +1,14 @@
+<div class="hor">
+    <div class="hor">Get supplying detail of: </div>
+    <select class="hor" #selectAgv (change)="onSelect($event.target.value)">
+        <option *ngFor="let a of myAgvs" value={{a}}>
+            {{a}}
+        </option>
+    </select>
+    <button class="myButton" (click)="GetSupplyingDetail4Agv(selectAgv.value)">Supplying detail</button>
+</div>
+<p>{{dept}}|{{block}}|{{fromDate}}|{{toDate}}</p>
+<p>{{s}}</p>
+<chart [options]="detailChart"></chart>
+
+<detail-supply></detail-supply>

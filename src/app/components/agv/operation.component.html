@@ -1,0 +1,10 @@
+﻿<div class="hor">
+    <button class="myButton" (click)="GetAgvPerformaces()">Get Agv operation rate</button>
+</div>
+<p>{{dept}}|{{block}}|{{fromDate}}|{{toDate}}</p>
+
+<chart [options]="myChart">
+    <series>
+        <point (select)="onPointSelect($event)"></point>
+    </series>
+</chart>

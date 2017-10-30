@@ -1,0 +1,48 @@
+﻿<p>Server address: {{orgUrl}}</p>
+
+<div class="horizontal">
+    <form #FromDate="ngForm" novalidate style="width:200px">
+        From date:
+        <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="fromDateModel" required (inputFieldChanged)="onFromDateChanged($event)">
+        </my-date-picker>
+    </form>
+    <form #ToDate style="width:200px">
+        To date:
+        <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="toDateModel" required (inputFieldChanged)="onToDateChanged($event)">
+        </my-date-picker>
+    </form>
+</div>
+
+<div>
+    <div class="hor">Select department: </div>
+    <select #selectDept (change)="onSelectDept($event.target.value)">
+        <option *ngFor="let a of listDept" value={{a._id}}>
+            {{a._name}}
+        </option>
+    </select>
+    <div class="hor">Select model: </div>
+    <select #selectBlock (change)="onSelectBlock($event.target.value)">
+        <option *ngFor="let a of listBlock" value={{a}}>
+            {{a}}
+        </option>
+    </select>
+</div>
+
+<hr/>
+
+<button class="btn-link" (click)="showOperationRate()">AGV operation rate</button> |
+<button class="btn-link" (click)="showSupplyingDetail()">Supplying detail</button>
+
+<!-- <p>{{(commonInfo$|async).viewMode}}</p> -->
+<div [ngSwitch]="(commonInfo$|async).viewMode">
+    <div *ngSwitchCase=0>
+        <agv-operation></agv-operation>
+    </div>  
+    <div *ngSwitchCase=1>
+        <agv-supply></agv-supply>
+    </div>
+    <div *ngSwitchDefault>
+        ...
+    </div>
+
+</div>

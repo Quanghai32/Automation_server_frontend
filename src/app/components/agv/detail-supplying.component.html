@@ -1,0 +1,50 @@
+﻿<div class="hor">
+    <div class="hor">Get supplying detail of: </div>
+    <select class="hor" #selectAgv (change)="onSelect($event.target.value)">
+        <option *ngFor="let a of myAgvs" value={{a}}>
+            {{a}}
+        </option>
+    </select>
+    <input [(ngModel)]="startTime">
+    <button class="myButton" (click)="getDetailSupply(selectAgv.value)">Supplying detail</button>
+</div>
+
+<p>{{selectedAgv}}</p>
+<table class='table' *ngIf="detailSupply">
+    <thead>
+        <tr>
+            <th>supply time</th>
+            <th><button class="btn_text_only" (click)="getDetailStatus(selectAgv.value,'normal')">normal</button></th>
+            <th><button class="btn_text_only" (click)="getDetailStatus(selectAgv.value,'stop')">stop</button></th>
+            <th><button class="btn_text_only" (click)="getDetailStatus(selectAgv.value,'safety')">safety</button></th>        
+            <th><button class="btn_text_only" (click)="getDetailStatus(selectAgv.value,'outline')">out line</button></th>
+            <th><button class="btn_text_only" (click)="getDetailStatus(selectAgv.value,'nocart')">no cart</button></th>
+            <th><button class="btn_text_only" (click)="getDetailStatus(selectAgv.value,'emergency')">emergency</button></th>
+            <th><button class="btn_text_only" (click)="getDetailStatus(selectAgv.value,'batterylow')">battery low</button></th>           
+            <th><button class="btn_text_only" (click)="getDetailStatus(selectAgv.value,'pole')">pole error</button></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let forecast of detailSupply">
+            <td>{{ forecast.supplyTime }}</td>
+            <td>{{ forecast.NORMAL }}</td>
+            <td>{{ forecast.STOP_BY_CARD }}</td>
+            <td>{{ forecast.SAFETY }}</td>
+            <td>{{ forecast.OUT_OF_LINE }}</td>
+            <td>{{ forecast.NO_CART }}</td>
+            <td>{{ forecast.EMERGENCY }}</td>
+            <td>{{ forecast.BATTERY_EMPTY }}</td>            
+            <td>{{ forecast.POLE_ERROR }}</td>
+            
+        </tr>
+    </tbody>
+</table>
+<p>{{recordText}}</p>
+
+<li *ngFor="let hero of recordSupply">
+    {{hero}}
+</li>
+
+
+
+
